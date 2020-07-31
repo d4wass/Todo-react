@@ -11,7 +11,11 @@ const ListItem = (props) => {
     <div className={styles.wrapper}>
       {isEdit ? (
         <li className={styles.item}>
-          <EditTask isOpen={toggle} />
+          <EditTask
+            isOpen={toggle}
+            taskId={props.item.id}
+            taskValue={props.item.description}
+          />
         </li>
       ) : (
         <div>

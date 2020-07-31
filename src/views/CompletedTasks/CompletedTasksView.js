@@ -9,8 +9,6 @@ const CompletedTasksView = () => (
         tasks={context.tasks.filter((item) => item.completed)}
         menuOpened={context.isMenuOpen}
         changeStatusFn={context.changeStatusTask}
-        editTaskFn={context.editTaskFn}
-        isEditedTask={context.isEditedTask}
       />
     )}
   </AppContext.Consumer>

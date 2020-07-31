@@ -53,7 +53,7 @@ class Modal extends React.Component {
             <div className={styles.wrapper}>
               <div className={styles.heading}>
                 <h2 className={styles.title}>Adding task</h2>
-                <Button task onClick={context.closeModal}>
+                <Button task onClick={context.showModal}>
                   Close
                 </Button>
               </div>
