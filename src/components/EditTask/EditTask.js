@@ -7,6 +7,7 @@ import AppContext from "../../context";
 const EditTask = ({ isOpen, taskId, taskDescription, taskDate }) => {
   const [description, setDescription] = useState(taskDescription);
   const [date, setDate] = useState(taskDate);
+
   const handleInput = useCallback((e) => setDescription(e.target.value));
   const handleDate = useCallback((e) => setDate(e.target.value));
 
