@@ -1,0 +1,28 @@
+.wrapper {
+  padding: 50px 0 0 50px;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  // align-content: center;
+  list-style: none;
+  flex-direction: column;
+  left: 0;
+  transition: left 0.3s ease-in;
+  h1 {
+    // text-align: center;
+    margin-bottom: 40px;
+  }
+}
+
+.wrapperActive {
+  @extend .wrapper;
+  width: calc(100vw - 300px);
+  left: 300px;
+  transition: left 0.3s ease-out;
+}
+
+.listWrapper {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+}

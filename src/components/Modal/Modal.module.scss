@@ -1,0 +1,47 @@
+.modalBackground {
+  position: fixed;
+  z-index: 600;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  // overflow: auto;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  padding: 20px 24px;
+  background-color: lightgrey;
+  border-radius: 10px;
+  width: 40vw;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.textarea {
+  background-color: #fff;
+  border: solid 1px #ddd;
+  border-radius: 10px;
+  button {
+    margin: 15px;
+  }
+}
+
+.confirmTask {
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 15px;
+  color: #202020;
+}

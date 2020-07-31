@@ -1,0 +1,78 @@
+.btn {
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  transition: background-color ease-in-out 0.3s;
+}
+
+.btn:hover {
+  background-color: hsla(0, 0%, 100%, 0.2);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+@mixin line {
+  width: 100%;
+  height: 2px;
+  display: inline-block;
+  background-color: #fff;
+  position: absolute;
+}
+
+.menuBtn {
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.box {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+.inner {
+  @include line;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.1s 0.2s ease-in-out;
+}
+
+.inner::before,
+.inner::after {
+  @include line;
+
+  content: "";
+  left: 0;
+  transition: transform 0.2s 0.2s ease-in-out;
+}
+
+.inner::before {
+  top: -7px;
+}
+
+.inner::after {
+  top: 7px;
+}
+
+.active .inner {
+  background-color: transparent;
+}
+
+.active .inner:before {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.active .inner:after {
+  transform: translateY(-10px) rotate(-45deg);
+}

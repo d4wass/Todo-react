@@ -1,0 +1,72 @@
+.inputWrapper {
+  position: relative;
+  margin: 15px;
+  padding: 0;
+}
+
+.label {
+  top: 9px;
+  left: 15px;
+  position: absolute;
+  transition: all 0.3s ease-out;
+  color: #fff;
+}
+
+.noLabel {
+  display: none;
+}
+
+.input {
+  border: none;
+  padding: 10px;
+  transition-property: width, opacity, background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in;
+  background-color: hsla(0, 0%, 100%, 0.2);
+  border-radius: 5px;
+  width: 100%;
+  color: #fff;
+}
+
+.dataInput {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.textarea {
+  resize: none;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.input:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.input:hover + .label {
+  color: #000;
+}
+
+.dataInput:focus {
+  outline: none;
+}
+
+.input:focus {
+  outline: none;
+  width: 300px;
+  color: #000;
+  background-color: #fff;
+}
+
+.input:focus + .label {
+  opacity: 0;
+}
+
+.input:not(:placeholder-shown) + .label {
+  opacity: 0;
+}
