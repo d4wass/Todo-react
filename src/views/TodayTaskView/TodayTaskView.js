@@ -11,7 +11,9 @@ const TodayTaskView = () => (
           (item) => item.date === today && !item.completed
         )}
         menuOpened={context.isMenuOpen}
-        changeStatus={context.statusTask}
+        changeStatusFn={context.changeStatusTask}
+        editTaskFn={context.editTaskFn}
+        isEditedTask={context.isEditedTask}
       />
     )}
   </AppContext.Consumer>

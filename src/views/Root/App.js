@@ -28,6 +28,7 @@ class App extends React.Component {
     ],
     isMenuOpen: false,
     isModalOpen: false,
+    isEditedTask: false,
   };
 
   handleShowMenu = () => {
@@ -56,7 +57,7 @@ class App extends React.Component {
     this.handleCloseModal();
   };
 
-  statusTask = (e) => {
+  changeStatusTask = (e) => {
     const taskIndex = this.state.tasks.findIndex(
       (task) => task.id === Number(e.target.id)
     );
@@ -66,9 +67,18 @@ class App extends React.Component {
       ...copyTasks[taskIndex],
       completed: !copyTasks[taskIndex].completed,
     };
+
     this.setState({
       tasks: copyTasks,
     });
+  };
+
+  editTask = (e, showInput) => {
+    console.log("coś tam działam");
+    console.log(e.target);
+    this.setState((prevState) => ({
+      editTask: showInput ? !prevState.editTask : prevState.editTask,
+    }));
   };
 
   render() {
@@ -78,7 +88,8 @@ class App extends React.Component {
       showModal: this.handleShowModal,
       closeModal: this.handleCloseModal,
       addTask: this.addTask,
-      statusTask: this.statusTask,
+      changeStatusTask: this.changeStatusTask,
+      editTaskFn: this.editTask,
     };
     const { isMenuOpen, isModalOpen } = this.state;
     return (

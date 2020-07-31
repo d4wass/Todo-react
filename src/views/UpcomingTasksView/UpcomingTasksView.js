@@ -5,7 +5,7 @@ import List from "../../components/List/List";
 const today = new Date().toISOString().slice(0, 10);
 const UpcomingTasksView = () => (
   <AppContext.Consumer>
-    {(context) => ( 
+    {(context) => (
       <List
         tasks={context.tasks.filter(
           (item) =>
@@ -14,7 +14,9 @@ const UpcomingTasksView = () => (
             Date.parse(today) < Date.parse(item.date)
         )}
         menuOpened={context.isMenuOpen}
-        changeStatus={context.statusTask}
+        changeStatusFn={context.changeStatusTask}
+        editTaskFn={context.editTaskFn}
+        isEditedTask={context.isEditedTask}
       />
     )}
   </AppContext.Consumer>
