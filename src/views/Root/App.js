@@ -47,7 +47,17 @@ class App extends React.Component {
     this.setState((prevState) => ({
       tasks: [...prevState.tasks, task],
     }));
-    this.handleCloseModal();
+    this.handleShowModal();
+  };
+
+  deleteTask = (id) => {
+    console.log("usuwam taksa");
+    let copyTasks = [...this.state.tasks];
+    copyTasks = copyTasks.filter((task) => task.id !== id);
+
+    this.setState({
+      tasks: copyTasks,
+    });
   };
 
   changeStatusTask = (e) => {
@@ -66,13 +76,13 @@ class App extends React.Component {
     });
   };
 
-  editTask = (e, id, value, date) => {
+  editTask = (id, value, date) => {
     const taskIndex = this.state.tasks.findIndex((task) => task.id === id);
     let copyTasks = [...this.state.tasks];
     copyTasks[taskIndex] = {
       ...copyTasks[taskIndex],
       description: value,
-      // date: String(date),
+      date: date,
     };
 
     this.setState({
@@ -88,6 +98,7 @@ class App extends React.Component {
       addTask: this.addTask,
       changeStatusTask: this.changeStatusTask,
       editTask: this.editTask,
+      deleteTask: this.deleteTask,
     };
     const { isMenuOpen, isModalOpen } = this.state;
     return (
@@ -96,7 +107,6 @@ class App extends React.Component {
           <Header />
           <div className={styles.wrapper}>
             <Navigation active={isMenuOpen} />
-
             <Switch>
               <Route exact path="/" component={AllTasksView} />
               <Route path="/today" component={TodayTaskView} />

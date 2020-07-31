@@ -15,6 +15,7 @@ const UpcomingTasksView = () => (
         )}
         menuOpened={context.isMenuOpen}
         changeStatusFn={context.changeStatusTask}
+        deleteTaskFn={context.deleteTask}
       />
     )}
   </AppContext.Consumer>

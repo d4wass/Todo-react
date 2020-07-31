@@ -2,8 +2,13 @@ import React, { useState, useCallback } from "react";
 import styles from "./ListItem.module.scss";
 import Button from "../Button/Button";
 import EditTask from "../EditTask/EditTask";
+import Task from "../List/Task";
 
-const ListItem = (props) => {
+const ListItem = ({
+  item: { id, description, completed, date },
+  changeStatusFn,
+  deleteTaskFn,
+}) => {
   const [isEdit, setEdit] = useState(false);
   const toggle = useCallback(() => setEdit(!isEdit));
 
@@ -13,29 +18,24 @@ const ListItem = (props) => {
         <li className={styles.item}>
           <EditTask
             isOpen={toggle}
-            taskId={props.item.id}
-            taskValue={props.item.description}
+            taskId={id}
+            taskDescription={description}
+            taskDate={date}
           />
         </li>
       ) : (
         <div>
-          <li className={styles.item}>
-            <div className={styles.input}>
-              <label className={styles.radio} id={props.item.id}>
-                <input
-                  id={props.item.id}
-                  type="radio"
-                  className={styles.radioInput}
-                  onChange={(e) => props.changeStatusFn(e)}
-                  checked={props.item.completed}
-                />
-                <div className={styles.radioButton}></div>
-                {props.item.description}
-              </label>
-            </div>
-          </li>
+          <Task
+            id={id}
+            description={description}
+            completed={completed}
+            changeStatusFn={changeStatusFn}
+          />
           <Button task onClick={toggle}>
             edit task
+          </Button>
+          <Button task onClick={() => deleteTaskFn(id)}>
+            delete task
           </Button>
         </div>
       )}

@@ -4,9 +4,12 @@ import Button from "../Button/Button";
 import Input from "../Input/Input";
 import AppContext from "../../context";
 
-const EditTask = ({ isOpen, taskId, taskValue }) => {
-  const [value, setValue] = useState(taskValue);
-  const handleInput = useCallback((e) => setValue(e.target.value));
+const EditTask = ({ isOpen, taskId, taskDescription, taskDate }) => {
+  const [description, setDescription] = useState(taskDescription);
+  const [date, setDate] = useState(taskDate);
+  const handleInput = useCallback((e) => setDescription(e.target.value));
+  const handleDate = useCallback((e) => setDate(e.target.value));
+
   return (
     <AppContext.Consumer>
       {(context) => (
@@ -15,14 +18,20 @@ const EditTask = ({ isOpen, taskId, taskValue }) => {
             <Input
               tag="textarea"
               onChange={(e) => handleInput(e)}
-              value={value}
+              value={description}
             />
-            <Button style={{ width: "20%" }} task>
+            <Input type="date" value={date} onChange={(e) => handleDate(e)}>
               Data
-            </Button>
+            </Input>
           </div>
           <div className={styles.btnWrapper}>
-            <Button task onClick={(e) => context.editTask(e, taskId, value)}>
+            <Button
+              task
+              onClick={() => {
+                context.editTask(taskId, description, date);
+                isOpen();
+              }}
+            >
               Save
             </Button>
             <Button task onClick={isOpen}>

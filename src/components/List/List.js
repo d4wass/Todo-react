@@ -1,10 +1,9 @@
 import React from "react";
 import styles from "./List.module.scss";
 import ListItem from "./ListItem";
-import Button from "../Button/Button";
 import { ReactComponent as Add } from "../../assets/plus-solid.svg";
 
-const List = ({ tasks, menuOpened, changeStatusFn, editTaskFn }) => (
+const List = ({ tasks, menuOpened, changeStatusFn, deleteTaskFn }) => (
   <>
     {tasks.length ? (
       <div className={menuOpened ? styles.wrapperActive : styles.wrapper}>
@@ -16,7 +15,7 @@ const List = ({ tasks, menuOpened, changeStatusFn, editTaskFn }) => (
               key={item.id}
               id={item.id}
               changeStatusFn={changeStatusFn}
-              editTaskFn={editTaskFn}
+              deleteTaskFn={deleteTaskFn}
             />
           ))}
         </ul>

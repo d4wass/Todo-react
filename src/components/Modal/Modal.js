@@ -3,12 +3,13 @@ import styles from "./Modal.module.scss";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import AppContext from "../../context";
+import nextId from "react-id-generator";
 
 const today = new Date().toISOString().slice(0, 10);
-let id = Date.now();
+
 class Modal extends React.Component {
   state = {
-    id: id,
+    id: nextId(),
     description: "",
     date: today,
     completed: false,
