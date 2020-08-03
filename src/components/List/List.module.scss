@@ -4,6 +4,7 @@
   align-items: center;
   width: 100%;
   padding-top: 50px;
+  // transition: width 0.3s ease-in;
 }
 .listWrapper {
   display: flex;
@@ -17,5 +18,9 @@
   @extend .wrapper;
   width: calc(100vw - 300px);
   left: 300px;
-  transition: left 0.3s ease-out;
+  transition: width 0.3s ease-out;
+}
+
+.title {
+  color: #fff;
 }

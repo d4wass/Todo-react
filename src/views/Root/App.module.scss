@@ -1,7 +1,10 @@
+$bg-color: #362859;
+
 .wrapper {
   height: calc(100vh - 65px);
   display: flex;
   flex-direction: row;
+  background-color: $bg-color;
 }
 
 div {

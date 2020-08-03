@@ -1,23 +1,29 @@
-.wrapper {
+$bg-color: #42326b;
+$gradient-icon-1: (#3b9dff, #304ffe);
+$gradient-icon-2: (#db50cd, #fd7fb6);
+$gradient-icon-3: (#bd66de, #5046ce);
+$gradient-icon-4: (90deg, #00c9ff 0%, #92fe9d 100%);
+
+@mixin wrapper {
   display: flex;
-  position: fixed;
   justify-content: center;
   width: 300px;
-  background-color: #fafafa;
-  height: calc(100vh - 82px);
-  left: 0;
-  transform: translateX(-300px);
+  background-color: $bg-color;
   transition: transform 0.3s ease-out;
 }
 
+.wrapper {
+  @include wrapper;
+  position: fixed;
+  height: calc(100vh - 82px);
+  left: 0;
+  transform: translateX(-300px);
+}
+
 .wrapperActive {
-  display: flex;
-  justify-content: center;
-  width: 300px;
-  background-color: #fafafa;
+  @include wrapper;
   height: calc(100vh - 82px);
   transform: translateX(0);
-  transition: transform 0.3s ease-in;
 }
 
 .menu {
@@ -29,27 +35,72 @@
 .item {
   margin-bottom: 25px;
   width: 100%;
-
   cursor: pointer;
+}
+
+.item:nth-child(1) div {
+  background: linear-gradient($gradient-icon-1);
+}
+.item:nth-child(2) div {
+  background: linear-gradient($gradient-icon-2);
+}
+.item:nth-child(3) div {
+  background: linear-gradient($gradient-icon-3);
+}
+.item:nth-child(4) div {
+  background: linear-gradient($gradient-icon-4);
 }
 
 .navItem {
   text-decoration: none;
-  font-size: 13px;
   display: flex;
-  justify-content: row;
   align-items: center;
   padding-left: 20%;
-  color: black;
+  color: #fff;
   svg {
-    width: 100%;
+    color: #fff !important;
+    width: 20px;
+    height: 20px;
   }
-  .icon {
+
+  &Icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
     margin-right: 10%;
+    border-radius: 50%;
   }
+
+  &Title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+  }
+}
+
+.item:nth-child(1) .navItemActive > p {
+  background: linear-gradient($gradient-icon-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.item:nth-child(2) .navItemActive > p {
+  background: linear-gradient($gradient-icon-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.item:nth-child(3) .navItemActive > p {
+  background: linear-gradient($gradient-icon-3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.item:nth-child(4) .navItemActive > p {
+  background: linear-gradient($gradient-icon-4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .navItemActive {
   @extend .navItem;
-  color: blue;
-  font-weight: bolder;
 }

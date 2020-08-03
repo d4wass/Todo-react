@@ -27,7 +27,7 @@ class App extends React.Component {
       },
     ],
     isMenuOpen: false,
-    isModalOpen: false,
+    isModalOpen: true,
   };
 
   handleShowMenu = () => {

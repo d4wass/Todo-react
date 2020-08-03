@@ -17,19 +17,20 @@
   transform: translate(-50%, -50%);
   flex-direction: column;
   padding: 20px 24px;
-  background-color: lightgrey;
+  background-color: #42326b;
   border-radius: 10px;
   width: 40vw;
 }
 
 .heading {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
 .textarea {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
   border: solid 1px #ddd;
   border-radius: 10px;
   button {
@@ -43,5 +44,5 @@
 
 .title {
   font-size: 15px;
-  color: #202020;
+  color: #fff;
 }

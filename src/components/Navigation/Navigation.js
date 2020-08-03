@@ -16,10 +16,10 @@ const Navigation = ({ active }) => (
           className={styles.navItem}
           activeClassName={styles.navItemActive}
         >
-          <div className={styles.icon}>
+          <div className={styles.navItemIcon}>
             <Inbox />
           </div>
-          <p>Inbox</p>
+          <p className={styles.navItemTitle}>Inbox</p>
         </NavLink>
       </li>
       <li className={styles.item}>
@@ -28,10 +28,10 @@ const Navigation = ({ active }) => (
           className={styles.navItem}
           activeClassName={styles.navItemActive}
         >
-          <div className={styles.icon}>
+          <div className={styles.navItemIcon}>
             <Today />
           </div>
-          <p>Today</p>
+          <p className={styles.navItemTitle}>Today</p>
         </NavLink>
       </li>
       <li className={styles.item}>
@@ -40,10 +40,10 @@ const Navigation = ({ active }) => (
           className={styles.navItem}
           activeClassName={styles.navItemActive}
         >
-          <div className={styles.icon}>
+          <div className={styles.navItemIcon}>
             <Upcoming />
           </div>
-          <p>Upcoming</p>
+          <p className={styles.navItemTitle}>Upcoming</p>
         </NavLink>
       </li>
       <li className={styles.item}>
@@ -52,10 +52,10 @@ const Navigation = ({ active }) => (
           className={styles.navItem}
           activeClassName={styles.navItemActive}
         >
-          <div className={styles.icon}>
+          <div className={styles.navItemIcon}>
             <Completed />
           </div>
-          <p>Completed</p>
+          <p className={styles.navItemTitle}>Completed</p>
         </NavLink>
       </li>
     </ul>

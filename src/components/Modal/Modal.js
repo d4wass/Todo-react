@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import Input from "../Input/Input";
 import AppContext from "../../context";
 import nextId from "react-id-generator";
+import { ReactComponent as Close } from "../../assets/times-solid.svg";
 
 const today = new Date().toISOString().slice(0, 10);
 
@@ -54,8 +55,8 @@ class Modal extends React.Component {
             <div className={styles.wrapper}>
               <div className={styles.heading}>
                 <h2 className={styles.title}>Adding task</h2>
-                <Button task onClick={context.showModal}>
-                  Close
+                <Button onClick={context.showModal}>
+                  <Close />
                 </Button>
               </div>
               <form
@@ -84,7 +85,7 @@ class Modal extends React.Component {
                   />
                 </div>
                 <div className={styles.confirmTask}>
-                  <Button task>Add Task</Button>
+                  <Button>Add Task</Button>
                 </div>
               </form>
             </div>

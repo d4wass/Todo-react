@@ -3,6 +3,8 @@ import styles from "./ListItem.module.scss";
 import Button from "../Button/Button";
 import EditTask from "../EditTask/EditTask";
 import Task from "../List/Task";
+import { ReactComponent as Trash } from "../../assets/trash-alt-regular.svg";
+import { ReactComponent as Edit } from "../../assets/edit-regular.svg";
 
 const ListItem = ({
   item: { id, description, completed, date },
@@ -24,20 +26,22 @@ const ListItem = ({
           />
         </li>
       ) : (
-        <div>
+        <>
           <Task
             id={id}
             description={description}
             completed={completed}
             changeStatusFn={changeStatusFn}
           />
-          <Button task onClick={toggle}>
-            edit task
-          </Button>
-          <Button task onClick={() => deleteTaskFn(id)}>
-            delete task
-          </Button>
-        </div>
+          <div className={styles.btnWrapper}>
+            <Button task onClick={toggle}>
+              <Edit />
+            </Button>
+            <Button task onClick={() => deleteTaskFn(id)}>
+              <Trash />
+            </Button>
+          </div>
+        </>
       )}
     </div>
   );

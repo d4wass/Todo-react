@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Button.module.scss";
 
-const Button = ({ children, link, menu, task, icon, ...props }) => {
+const Button = ({ children, link, menu, task, icon, btnStyle, ...props }) => {
   return (
     <>
       {link ? (

@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./List.module.scss";
 import ListItem from "./ListItem";
-import { ReactComponent as Add } from "../../assets/plus-solid.svg";
 
+const location = window.location.pathname;
 const List = ({ tasks, menuOpened, changeStatusFn, deleteTaskFn }) => (
   <>
     {tasks.length ? (
       <div className={menuOpened ? styles.wrapperActive : styles.wrapper}>
-        <h1>Today tasks</h1>
+        <h1 className={styles.title}>Today tasks</h1>
         <ul className={styles.listWrapper}>
           {tasks.map((item) => (
             <ListItem
@@ -22,7 +22,15 @@ const List = ({ tasks, menuOpened, changeStatusFn, deleteTaskFn }) => (
       </div>
     ) : (
       <div className={menuOpened ? styles.wrapperActive : styles.wrapper}>
-        <h1>There nothing to do today. Add new task</h1>
+        {window.location.pathname === "/completed" ? (
+          <h1 className={styles.title}>You're done for now</h1>
+        ) : window.location.pathname === "/today" ? (
+          <h1 className={styles.title}>Nothing to do today, add new tasks.</h1>
+        ) : window.location.pathname === "/upcoming" ? (
+          <h1 className={styles.title}>Nothing comming up, make some plans.</h1>
+        ) : (
+          <h1 className={styles.title}>Nothing here yet, make some plans.</h1>
+        )}
       </div>
     )}
   </>
