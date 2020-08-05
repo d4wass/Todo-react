@@ -13,10 +13,7 @@ const Input = ({ tag: Tag, children, type, ...props }) => (
           className={Tag !== "input" ? styles.textarea : styles.input}
           {...props}
         />
-        <label
-          htmlFor={children}
-          className={Tag !== "input" ? styles.noLabel : styles.label}
-        >
+        <label htmlFor={children} className={styles.label}>
           {children}
         </label>
       </div>

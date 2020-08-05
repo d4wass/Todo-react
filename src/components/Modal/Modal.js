@@ -55,9 +55,11 @@ class Modal extends React.Component {
             <div className={styles.wrapper}>
               <div className={styles.heading}>
                 <h2 className={styles.title}>Adding task</h2>
-                <Button onClick={context.showModal}>
-                  <Close />
-                </Button>
+                <div className={styles.svg}>
+                  <Button onClick={context.showModal}>
+                    <Close />
+                  </Button>
+                </div>
               </div>
               <form
                 onKeyDown={(e) =>
@@ -77,15 +79,16 @@ class Modal extends React.Component {
                   >
                     Description
                   </Input>
-                  <Input
-                    type="date"
-                    placeholder={this.state.date}
-                    value={this.state.date}
-                    onChange={this.handleDate}
-                  />
                 </div>
+                <Input
+                  type="date"
+                  placeholder={this.state.date}
+                  value={this.state.date}
+                  onChange={this.handleDate}
+                />
+
                 <div className={styles.confirmTask}>
-                  <Button>Add Task</Button>
+                  <Button task>Add Task</Button>
                 </div>
               </form>
             </div>

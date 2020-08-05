@@ -3,7 +3,7 @@ $bg-color: #42326b;
 .wrapper {
   display: flex;
   position: relative;
-  padding: 0 20px;
+  padding: 5px 15px;
   align-items: center;
   justify-content: space-between;
   background-color: $bg-color;
@@ -21,4 +21,8 @@ $bg-color: #42326b;
 }
 div {
   padding: 0 10px;
+}
+
+.headerInput {
+  margin: 0 15px;
 }

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Button.module.scss";
 
-const Button = ({ children, link, menu, task, icon, btnStyle, ...props }) => {
+const Button = ({ children, link, menu, task, icon, showMenu, ...props }) => {
+  const [isOpen, setOpen] = useState(false);
+  const toggle = useCallback(() => setOpen(!isOpen));
   return (
     <>
       {link ? (
@@ -10,7 +12,14 @@ const Button = ({ children, link, menu, task, icon, btnStyle, ...props }) => {
           {children}
         </NavLink>
       ) : menu ? (
-        <button className={styles.menuBtn} {...props}>
+        <button
+          className={isOpen ? styles.active : styles.menuBtn}
+          onClick={() => {
+            showMenu();
+            toggle();
+          }}
+          {...props}
+        >
           <span className={styles.box}>
             <span className={styles.inner}></span>
           </span>

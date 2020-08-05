@@ -14,20 +14,39 @@ class App extends React.Component {
   state = {
     tasks: [
       {
-        id: 1596018601067,
         completed: false,
-        date: "2020-07-29",
-        description: "test",
+        date: "2020-08-05",
+        description: "nowy task",
+        id: "id5",
       },
       {
-        id: 1596018628228,
         completed: false,
-        date: "2020-07-29",
-        description: "test 2",
+        date: "2020-08-05",
+        description: "nowy task 2",
+        id: "id6",
+      },
+      {
+        completed: false,
+        date: "2020-08-05",
+        description: "nowy task 3",
+        id: "id7",
       },
     ],
+    filteredTasks: [],
+    searchValue: "",
     isMenuOpen: false,
-    isModalOpen: true,
+    isModalOpen: false,
+  };
+
+  handleSearch = (e) => {
+    const value = e.target.value;
+    const filteredTasks = this.state.tasks.filter((task) =>
+      task.description.toLowerCase().includes(value.toLowerCase())
+    );
+    this.setState({
+      searchValue: value,
+      filteredTasks: filteredTasks,
+    });
   };
 
   handleShowMenu = () => {
@@ -62,10 +81,11 @@ class App extends React.Component {
 
   changeStatusTask = (e) => {
     const taskIndex = this.state.tasks.findIndex(
-      (task) => task.id === Number(e.target.id)
+      (task) => task.id === e.target.id
     );
 
     let copyTasks = [...this.state.tasks];
+
     copyTasks[taskIndex] = {
       ...copyTasks[taskIndex],
       completed: !copyTasks[taskIndex].completed,
@@ -99,6 +119,7 @@ class App extends React.Component {
       changeStatusTask: this.changeStatusTask,
       editTask: this.editTask,
       deleteTask: this.deleteTask,
+      handleSearch: this.handleSearch,
     };
     const { isMenuOpen, isModalOpen } = this.state;
     return (
