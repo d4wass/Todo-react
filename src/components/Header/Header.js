@@ -7,8 +7,6 @@ import { ReactComponent as Home } from "../../assets/home-solid.svg";
 import { ReactComponent as Add } from "../../assets/plus-solid.svg";
 
 const Header = () => {
-  // const [searchValue, setSearchValue] = useState("");
-  // const handleSearch = (event) => setSearchValue(event.target.value);
   return (
     <AppContext.Consumer>
       {(context) => (
