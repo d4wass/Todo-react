@@ -12,26 +12,7 @@ import UpcomingTasksView from "../UpcomingTasksView/UpcomingTasksView";
 
 class App extends React.Component {
   state = {
-    tasks: [
-      {
-        completed: false,
-        date: "2020-08-05",
-        description: "nowy task",
-        id: "id5",
-      },
-      {
-        completed: false,
-        date: "2020-08-05",
-        description: "nowy task 2",
-        id: "id6",
-      },
-      {
-        completed: false,
-        date: "2020-08-05",
-        description: "nowy task 3",
-        id: "id7",
-      },
-    ],
+    tasks: [],
     filteredTasks: [],
     searchValue: "",
     isMenuOpen: false,
