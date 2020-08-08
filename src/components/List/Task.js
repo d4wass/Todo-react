@@ -13,7 +13,7 @@ const Task = ({ description, completed, changeStatusFn, id }) => (
           checked={completed}
         />
         <div className={styles.radioButton}></div>
-        {description}
+        <span className={styles.label}>{description}</span>
       </label>
     </div>
   </li>

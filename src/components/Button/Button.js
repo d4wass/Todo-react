@@ -2,7 +2,17 @@ import React, { useState, useCallback } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Button.module.scss";
 
-const Button = ({ children, link, menu, task, icon, showMenu, ...props }) => {
+const Button = ({
+  children,
+  link,
+  menu,
+  task,
+  icon,
+  item,
+  remove,
+  showMenu,
+  ...props
+}) => {
   const [isOpen, setOpen] = useState(false);
   const toggle = useCallback(() => setOpen(!isOpen));
   return (
@@ -26,6 +36,14 @@ const Button = ({ children, link, menu, task, icon, showMenu, ...props }) => {
         </button>
       ) : task ? (
         <button className={styles.task} {...props}>
+          {children}
+        </button>
+      ) : item ? (
+        <button className={styles.item} {...props}>
+          {children}
+        </button>
+      ) : remove ? (
+        <button className={styles.remove} {...props}>
           {children}
         </button>
       ) : (

@@ -34,10 +34,10 @@ const ListItem = ({
             changeStatusFn={changeStatusFn}
           />
           <div className={styles.btnWrapper}>
-            <Button task onClick={toggle}>
+            <Button item onClick={toggle}>
               <Edit />
             </Button>
-            <Button task onClick={() => deleteTaskFn(id)}>
+            <Button remove onClick={() => deleteTaskFn(id)}>
               <Trash />
             </Button>
           </div>

@@ -14,6 +14,7 @@ const TodayTaskView = () => (
         changeStatusFn={context.changeStatusTask}
         deleteTaskFn={context.deleteTask}
         filtered={context.filteredTasks}
+        searchValue={context.searchValue}
       />
     )}
   </AppContext.Consumer>

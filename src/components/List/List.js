@@ -8,6 +8,7 @@ const List = ({
   menuOpened,
   changeStatusFn,
   deleteTaskFn,
+  searchValue,
 }) => (
   <>
     {tasks.length ? (
@@ -22,7 +23,7 @@ const List = ({
           <h1 className={styles.title}>Inbox</h1>
         )}
         <ul className={styles.listWrapper}>
-          {filtered.length !== 0
+          {filtered.length && searchValue.length !== 0
             ? filtered.map((item) => (
                 <ListItem
                   item={item}

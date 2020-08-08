@@ -1,4 +1,6 @@
 $gradient-task-btn: (#bd66de, #5046ce);
+$hover-edit: #00ca4e;
+$hover-remove: #ff605c;
 
 @mixin basic-btn {
   background: linear-gradient(-45deg, $gradient-task-btn);
@@ -15,6 +17,16 @@ $gradient-task-btn: (#bd66de, #5046ce);
   position: absolute;
 }
 
+@mixin task-btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 0 10px;
+  svg {
+    height: 15px;
+    width: 15px;
+  }
+}
+
 .btn {
   height: 35px;
   width: 35px;
@@ -28,20 +40,30 @@ $gradient-task-btn: (#bd66de, #5046ce);
 }
 
 .task {
-  padding: 10px 15px;
-  border-radius: 5px;
-  margin: 0 10px;
+  @include task-btn;
   @include basic-btn;
-  svg {
-    height: 15px;
-    width: 15px;
+}
+
+//task item buttons (edit + delete)
+
+.item {
+  @include task-btn;
+  @include basic-btn;
+  &:hover {
+    background: $hover-edit;
+    // background-color: #00ca4e;
   }
 }
 
-.btn:hover {
-  fill: $gradient-task-btn;
+.remove {
+  @include task-btn;
+  @include basic-btn;
+  &:hover {
+    background: $hover-remove;
+    // background-color: #00ca4e;
+  }
 }
-
+// menu hamburger icon + animations
 .menuBtn,
 .active {
   padding: 10px;
