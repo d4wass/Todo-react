@@ -2,6 +2,10 @@
 
 Simple Todo List app in React (using basic elements)
 
+## Live Demo
+
+https://bit.ly/3fFWyp8
+
 ## Features
 
 * 4 views of todos:
@@ -9,10 +13,7 @@ Simple Todo List app in React (using basic elements)
   * Upcoming - contains tasks with furure date
   * Today - contains tasks with present date
   * Completed - completed tasks
+* Editing Tasks,
+* Setting date,
+* Searching tasks by description/title,
 
-
-
-
-## Live Demo
-
-https://bit.ly/3fFWyp8
