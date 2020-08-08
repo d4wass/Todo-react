@@ -11,7 +11,7 @@
   &Input {
     opacity: 0;
     position: absolute;
-    cursor: pointer;
+    z-index: -1;
   }
 
   &Button {
@@ -21,16 +21,34 @@
     border: solid 2px #fff;
     margin-right: 10px;
     transition: border-color 0.3s ease-in-out;
+    cursor: pointer;
   }
-  &Button:hover,
-  &Input:hover {
-    border-color: #00ca4e;
+
+  &Button:hover {
+    background-color: #00ca4e;
+    transition: all 0.3s ease-in-out;
   }
 
   &Input:checked + &Button {
     background-color: #00ca4e;
-    border-color: #00ca4e;
     box-shadow: inset 0 0 0 2px #fff;
+    border: none;
+  }
+
+  &Input:checked + .label {
+    position: relative;
+    cursor: pointer;
+  }
+
+  &Input:checked + .label::before,
+  &Input:checked + .label::after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    margin-top: -0.5px;
+    background-color: #fff;
   }
 }
 
