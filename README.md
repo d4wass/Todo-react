@@ -1,6 +1,6 @@
 ## Todo List App
 
-Simple Todo List app in React (using basic elements)
+Simple Todo List app in React (using basic elements React and JS)
 
 ## Live Demo
 
